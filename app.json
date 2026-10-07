@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "GravadorAudio",
+    "slug": "gravador-audio",
+    "version": "1.0.0",
+    "scheme": "gravadoraudio",
+
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+
+    "plugins": [
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Permitir acesso ao microfone",
+          "recordAudioAndroid": true
+        }
+      ]
+    ],
+
+    "android": {
+      "package": "com.ebrahimzaheer.gravadoraudio",
+      "usesCleartextTraffic": true,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ]
+    },
+
+    "ios": {
+      "supportsTablet": true
+    },
+
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+
+    "extra": {
+      "eas": {
+        "projectId": "016991c3-1201-4fc2-aed4-87b7945a47cb"
+      }
+    }
+  }
+}
