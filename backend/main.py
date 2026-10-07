@@ -57,11 +57,12 @@ class RenomearGravacaoRequest(BaseModel):
 
 def formatar_url(item: dict, request: Request) -> dict:
     """Adiciona a URL pública completa do áudio ao objeto."""
-    base_url = str(request.base_url).rstrip("/")
+    proto = request.headers.get("x-forwarded-proto", request.url.scheme)
+    host = request.headers.get("x-forwarded-host", request.headers.get("host", request.url.netloc))
     caminho = item.get("caminho", "")
     return {
         **item,
-        "uri": f"{base_url}/uploads/{caminho}",
+        "uri": f"{proto}://{host}/uploads/{caminho}",
     }
 
 
